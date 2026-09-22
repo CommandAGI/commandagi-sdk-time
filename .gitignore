@@ -1,2 +1,8 @@
 dist/
 *.tsbuildinfo
+node_modules/
+.turbo/
+__pycache__/
+.venv/
+*.egg-info/
+.DS_Store
