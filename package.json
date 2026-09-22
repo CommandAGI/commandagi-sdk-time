@@ -1,0 +1,51 @@
+{
+  "name": "@commandagi/time",
+  "version": "0.1.1",
+  "description": "The CommandAGI time algebra: what a time is, and the rules for comparing and converting them.",
+  "license": "MIT",
+  "author": "CommandAGI",
+  "homepage": "https://commandagi.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CommandAGI/commandagi.git",
+    "directory": "sdk/time"
+  },
+  "keywords": [
+    "commandagi",
+    "time",
+    "timecode",
+    "clock",
+    "duration"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test \"src/**/*.test.ts\"",
+    "clean": "rm -rf dist .turbo *.tsbuildinfo",
+    "prepublishOnly": "node -e \"if(!/pnpm/.test(process.env.npm_config_user_agent||'')){console.error('\\\\n  Publish this with pnpm, not npm.\\\\n\\\\n  publishConfig.exports/main/types is a pnpm feature. npm ignores it silently and ships a\\\\n  package whose entry points at src/, which the files list does not include - installable,\\\\n  and broken on first import. That is exactly what shipped as 0.1.0.\\\\n\\\\n  Use:  pnpm publish --access public\\\\n');process.exit(1)}\""
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    }
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
