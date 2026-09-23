@@ -22,4 +22,5 @@ A leaf below BOTH is the only placement that satisfies both consumers:
 ```
 
 `document` owns the temporal PORTS (reclock / align / hold / resample on the op-graph); this owns the
-algebra underneath them. See `docs/platform/TIME.md`.
+algebra underneath them. The [public exports](src/index.ts) and
+[executable examples and tests](src/index.test.ts) describe the supported operations.
